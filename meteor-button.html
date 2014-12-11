@@ -1,0 +1,29 @@
+
+<link rel="import" href="/packages/gfk_polymer/bower_components/polymer/polymer.html">
+
+<polymer-element name="meteor-button" attributes="buttontype disabled action extraclass spinner href">
+    <template>
+        <link rel="stylesheet" href="meteor-button.css">
+
+        <button on-click="{{onClick}}" class="btn {{extraclass}}" type="button">
+            <template if="{{spinner}}">
+                Spinning
+            </template>
+            <span><content></content></span>
+        </button>
+    </template>
+
+    <script>
+        Polymer('meteor-button', {
+            onClick: function () {
+                this.fire(this.action);
+            },
+            href: '',
+            buttontype: '',
+            disabled: false,
+            action: '',
+            extraclass: '',
+            spinner: false
+        });
+    </script>
+</polymer-element>
